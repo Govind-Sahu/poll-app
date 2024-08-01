@@ -1,0 +1,32 @@
+<!-- polls/templates/partials/_navbar.html -->
+ <style>
+.navbar{
+background-color:#00bdff;
+ }
+</style>
+<nav class="navbar navbar-expand-lg navbar-light ">
+	<a class="navbar-brand" href="{% url 'polls:index' %}">Pollster</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+	  <span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarNav">
+	  <ul class="navbar-nav ml-auto">
+		{% comment %} <li class="nav-item">
+		  <a class="nav-link" href="{% url 'polls:index' %}">Home</a>
+		</li> {% endcomment %}
+		{% if user.is_authenticated %}
+		<li class="nav-item">
+		  <a class="nav-link" href="{% url 'polls:logout' %}">Logout</a>
+		</li>
+		{% else %}
+		<li class="nav-item">
+		  <a class="nav-link" href="{% url 'polls:login' %}">Login</a>
+		</li>
+		<li class="nav-item">
+		  <a class="nav-link" href="{% url 'polls:register' %}">Register</a>
+		</li>
+		{% endif %}
+	  </ul>
+	</div>
+  </nav>
+  

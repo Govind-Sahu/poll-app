@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="card text-center">
+  <div class="card-body">
+    <h1>Welcome To Pollster</h1>
+    <p>This is an example Django polling app</p>
+    {% if user.is_authenticated %}
+      <a class="btn btn-dark" href="{% url 'polls:index' %}">View Available Polls</a>
+    {% else %}
+      <a class="btn btn-dark" href="{% url 'polls:login' %}">Login to View Polls</a>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}
